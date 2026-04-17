@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Vital Edge Training Center | Millbury, MA</title>
+  <meta name="description" content="Contact Vital Edge Training Center. Located at 142 RTE 146, Millbury, MA. Call (508) 735-1912 or send us a message." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--black:#080a0d;--dark:#0d1117;--dark-2:#111720;--dark-3:#161d28;--card-bg:#121923;--blue:#0ea5e9;--blue-dark:#0284c7;--blue-glow:rgba(14,165,233,0.25);--red:#ef4444;--white:#ffffff;--gray-300:#94a3b8;--gray-400:#64748b;--font-head:'Barlow Condensed',sans-serif;--font-body:'Inter',sans-serif;--nav-h:72px;--transition:0.3s cubic-bezier(0.4,0,0.2,1);--radius:12px;--radius-lg:20px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--black);color:var(--white);font-family:var(--font-body);line-height:1.6;overflow-x:hidden;}
+    img{display:block;max-width:100%;}
+    a{color:inherit;text-decoration:none;}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
+    .section{padding:100px 0;}
+    .section-label{font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:block;}
+    .section-title{font-family:var(--font-head);font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.05;text-transform:uppercase;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:var(--radius);font-weight:600;font-size:0.875rem;cursor:pointer;border:none;transition:var(--transition);font-family:var(--font-body);}
+    .btn-primary{background:var(--blue);color:var(--white);}
+    .btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 8px 24px var(--blue-glow);}
+    .btn-lg{padding:14px 32px;font-size:1rem;}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;background:rgba(8,10,13,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
+    .nav-logo{display:flex;align-items:center;gap:10px;}
+    .nav-logo img{height:44px;width:44px;object-fit:cover;border-radius:6px;}
+    .nav-logo span{font-family:var(--font-head);font-weight:800;font-size:1.2rem;text-transform:uppercase;letter-spacing:0.04em;}
+    .nav-links{display:flex;gap:28px;list-style:none;}
+    .nav-links a{font-size:0.875rem;font-weight:500;color:var(--gray-300);}
+    .nav-links a:hover{color:var(--white);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;}
+    .mobile-menu{display:none;position:fixed;inset:0;top:var(--nav-h);background:rgba(8,10,13,0.97);backdrop-filter:blur(16px);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{font-family:var(--font-head);font-size:2rem;font-weight:800;text-transform:uppercase;}
+
+    .page-header{padding:140px 0 80px;background:var(--dark-2);text-align:center;border-bottom:1px solid rgba(255,255,255,0.06);}
+    .page-header h1{font-family:var(--font-head);font-size:clamp(2.8rem,7vw,5rem);font-weight:900;text-transform:uppercase;line-height:1;}
+    .page-header h1 span{color:var(--blue);}
+    .page-header p{color:var(--gray-300);font-size:1.05rem;margin:16px auto 0;max-width:500px;}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+    .contact-card{background:var(--card-bg);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius-lg);padding:40px;}
+    .contact-cards{display:flex;flex-direction:column;gap:16px;}
+    .info-card{background:var(--card-bg);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius);padding:24px;display:flex;gap:16px;align-items:flex-start;}
+    .info-icon{width:44px;height:44px;border-radius:var(--radius);background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem;}
+    .info-label{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;}
+    .info-value{font-size:0.95rem;color:var(--white);}
+    .info-value a{color:var(--blue);}
+    .social-row{display:flex;gap:12px;margin-top:24px;}
+    .social-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:var(--radius);background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);font-size:0.85rem;font-weight:600;transition:background var(--transition);}
+    .social-btn:hover{background:rgba(14,165,233,0.15);border-color:rgba(14,165,233,0.3);}
+    .map-wrap{margin-top:20px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(255,255,255,0.07);}
+    .map-wrap iframe{display:block;width:100%;height:320px;border:none;}
+
+    .form-title{font-family:var(--font-head);font-size:1.8rem;font-weight:800;text-transform:uppercase;margin-bottom:8px;}
+    .form-sub{font-size:0.9rem;color:var(--gray-300);margin-bottom:28px;}
+    .form-group{margin-bottom:16px;}
+    .form-group label{display:block;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-300);margin-bottom:6px;}
+    .form-group input,.form-group textarea,.form-group select{width:100%;background:var(--dark);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:12px 16px;color:var(--white);font-family:var(--font-body);font-size:0.9rem;transition:border-color var(--transition);}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--blue);}
+    .form-group textarea{min-height:120px;resize:vertical;}
+    .form-group select option{background:var(--dark);}
+    .form-submit{width:100%;padding:14px;background:var(--blue);color:var(--white);border:none;border-radius:var(--radius);font-family:var(--font-head);font-size:1.1rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:var(--transition);margin-top:8px;}
+    .form-submit:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 8px 24px var(--blue-glow);}
+
+    footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.06);padding:60px 0 32px;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+    .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+    .footer-logo img{height:40px;width:40px;object-fit:cover;border-radius:6px;}
+    .footer-logo span{font-family:var(--font-head);font-weight:800;font-size:1.1rem;text-transform:uppercase;}
+    .footer-tagline{font-size:0.9rem;color:var(--gray-300);line-height:1.6;margin-bottom:20px;}
+    .footer-socials{display:flex;gap:12px;}
+    .footer-social{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:0.9rem;}
+    .footer-social:hover{background:rgba(14,165,233,0.2);}
+    .footer-col-title{font-family:var(--font-head);font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray-300);margin-bottom:16px;}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-links a{font-size:0.875rem;color:var(--gray-400);}
+    .footer-links a:hover{color:var(--white);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+    .footer-copy{font-size:0.8rem;color:var(--gray-400);}
+
+    .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-up.visible{opacity:1;transform:translateY(0);}
+    @media(max-width:900px){.nav-links,.nav-cta-desktop{display:none;}.hamburger{display:flex;}.contact-grid,.footer-grid{grid-template-columns:1fr;gap:36px;}}
+    @media(max-width:600px){.section{padding:70px 0;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.jpg" alt="Vital Edge logo" />
+      <span>Vital Edge</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="memberships.html">Memberships</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="free-trial.html" class="btn btn-primary nav-cta-desktop">Start Free Trial</a>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="memberships.html">Memberships</a>
+  <a href="schedule.html">Schedule</a>
+  <a href="contact.html">Contact</a>
+  <a href="free-trial.html" class="btn btn-primary">Start Free Trial</a>
+</div>
+
+<div class="page-header">
+  <span class="section-label">Get in Touch</span>
+  <h1>We're Here<br><span>to Help</span></h1>
+  <p>Questions about programs, membership, or your first visit? Reach out — we'll get back to you fast.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="fade-up">
+        <div class="contact-cards">
+          <div class="info-card">
+            <div class="info-icon">📍</div>
+            <div>
+              <div class="info-label">Location</div>
+              <div class="info-value">142 Worcester-Providence Turnpike (RTE 146)<br>Millbury, MA 01527</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📞</div>
+            <div>
+              <div class="info-label">Phone</div>
+              <div class="info-value"><a href="tel:+15087351912">(508) 735-1912</a></div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">✉️</div>
+            <div>
+              <div class="info-label">Email</div>
+              <div class="info-value"><a href="mailto:vitaledgetrainingcenter@gmail.com">vitaledgetrainingcenter@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📱</div>
+            <div>
+              <div class="info-label">Social Media</div>
+              <div class="info-value">@vitaledgetraining</div>
+            </div>
+          </div>
+        </div>
+        <div class="social-row">
+          <a href="https://www.instagram.com/vitaledgetraining" target="_blank" rel="noopener" class="social-btn">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61583598425665" target="_blank" rel="noopener" class="social-btn">Facebook</a>
+        </div>
+        <div class="map-wrap">
+          <iframe src="https://maps.google.com/maps?q=142+Worcester-Providence+Turnpike,+Millbury,+MA+01527&output=embed" title="Vital Edge Training Center location" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="contact-card">
+          <div class="form-title">Send a Message</div>
+          <p class="form-sub">We'll respond within 24 hours. For the fastest response, call us directly.</p>
+          <form action="https://formspree.io/f/vitaledge" method="POST">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="name" placeholder="Full name" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="(508) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <select name="subject">
+                <option value="">What can we help with?</option>
+                <option>Free Trial Question</option>
+                <option>Membership Info</option>
+                <option>Class Schedule</option>
+                <option>Kids Programs</option>
+                <option>Recovery Amenities</option>
+                <option>General Question</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" placeholder="Tell us what's on your mind..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="logo.jpg" alt="Vital Edge logo" /><span>Vital Edge Training Center</span></div>
+        <p class="footer-tagline">Authentic training. Real results. No ego.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/vitaledgetraining" target="_blank" rel="noopener" class="footer-social">IG</a>
+          <a href="https://www.facebook.com/profile.php?id=61583598425665" target="_blank" rel="noopener" class="footer-social">FB</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="memberships.html">Memberships</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+15087351912">(508) 735-1912</a></li>
+          <li><a href="mailto:vitaledgetrainingcenter@gmail.com">Email Us</a></li>
+          <li style="color:var(--gray-400);font-size:0.875rem">142 RTE 146, Millbury, MA 01527</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 Vital Edge Training Center.</div>
+      <div class="footer-copy"><a href="tel:+15087351912" style="color:var(--blue)">(508) 735-1912</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

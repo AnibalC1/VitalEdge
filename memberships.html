@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memberships & Pricing | Vital Edge Training Center | Millbury, MA</title>
+  <meta name="description" content="Vital Edge Training Center membership plans starting at $49/month. No contracts. Basic Fitness Club and Full Access — find the plan that fits your life." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--black:#080a0d;--dark:#0d1117;--dark-2:#111720;--dark-3:#161d28;--card-bg:#121923;--blue:#0ea5e9;--blue-dark:#0284c7;--blue-glow:rgba(14,165,233,0.25);--red:#ef4444;--white:#ffffff;--gray-300:#94a3b8;--gray-400:#64748b;--font-head:'Barlow Condensed',sans-serif;--font-body:'Inter',sans-serif;--nav-h:72px;--transition:0.3s cubic-bezier(0.4,0,0.2,1);--radius:12px;--radius-lg:20px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--black);color:var(--white);font-family:var(--font-body);line-height:1.6;overflow-x:hidden;}
+    img{display:block;max-width:100%;}
+    a{color:inherit;text-decoration:none;}
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
+    .section{padding:100px 0;}
+    .section-label{font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:block;}
+    .section-title{font-family:var(--font-head);font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.05;text-transform:uppercase;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:var(--radius);font-weight:600;font-size:0.875rem;cursor:pointer;border:none;transition:var(--transition);font-family:var(--font-body);}
+    .btn-primary{background:var(--blue);color:var(--white);}
+    .btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 8px 24px var(--blue-glow);}
+    .btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.3);}
+    .btn-outline:hover{border-color:var(--blue);color:var(--blue);}
+    .btn-lg{padding:14px 32px;font-size:1rem;}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;background:rgba(8,10,13,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
+    .nav-logo{display:flex;align-items:center;gap:10px;}
+    .nav-logo img{height:44px;width:44px;object-fit:cover;border-radius:6px;}
+    .nav-logo span{font-family:var(--font-head);font-weight:800;font-size:1.2rem;text-transform:uppercase;letter-spacing:0.04em;}
+    .nav-links{display:flex;gap:28px;list-style:none;}
+    .nav-links a{font-size:0.875rem;font-weight:500;color:var(--gray-300);}
+    .nav-links a:hover{color:var(--white);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;}
+    .mobile-menu{display:none;position:fixed;inset:0;top:var(--nav-h);background:rgba(8,10,13,0.97);backdrop-filter:blur(16px);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{font-family:var(--font-head);font-size:2rem;font-weight:800;text-transform:uppercase;}
+
+    .page-header{padding:140px 0 80px;background:var(--dark-2);text-align:center;border-bottom:1px solid rgba(255,255,255,0.06);}
+    .page-header h1{font-family:var(--font-head);font-size:clamp(2.8rem,7vw,5rem);font-weight:900;text-transform:uppercase;line-height:1;}
+    .page-header h1 span{color:var(--blue);}
+    .page-header p{color:var(--gray-300);font-size:1.05rem;margin:16px auto 0;max-width:500px;}
+
+    .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px;max-width:920px;margin-left:auto;margin-right:auto;}
+    .pricing-card{border-radius:var(--radius-lg);padding:48px 40px;position:relative;overflow:hidden;}
+    .pricing-card-basic{background:var(--card-bg);border:1px solid rgba(255,255,255,0.08);}
+    .pricing-card-premium{background:linear-gradient(135deg,#0c1e30 0%,#0a1929 100%);border:1px solid rgba(14,165,233,0.35);}
+    .pricing-card-premium::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue-dark));}
+    .pricing-badge{display:inline-block;background:var(--blue);color:var(--white);font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px;}
+    .pricing-name{font-family:var(--font-head);font-size:1.8rem;font-weight:800;text-transform:uppercase;margin-bottom:8px;}
+    .pricing-price{display:flex;align-items:baseline;gap:4px;margin-bottom:8px;}
+    .pricing-price .amount{font-family:var(--font-head);font-size:4rem;font-weight:900;}
+    .pricing-price .period{font-size:1rem;color:var(--gray-300);}
+    .pricing-sub{font-size:0.85rem;color:var(--gray-400);margin-bottom:32px;}
+    .pricing-divider{height:1px;background:rgba(255,255,255,0.08);margin-bottom:28px;}
+    .pricing-features{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:36px;}
+    .pricing-features li{display:flex;align-items:center;gap:10px;font-size:0.92rem;color:var(--gray-300);}
+    .pricing-features li .check{color:var(--blue);font-weight:700;font-size:1rem;flex-shrink:0;}
+    .pricing-features li .x{color:var(--gray-400);font-weight:700;flex-shrink:0;}
+
+    .compare-table{width:100%;border-collapse:collapse;margin-top:48px;}
+    .compare-table th,.compare-table td{padding:16px 20px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.9rem;}
+    .compare-table thead th{font-family:var(--font-head);font-size:1.1rem;font-weight:800;text-transform:uppercase;color:var(--gray-300);background:var(--card-bg);}
+    .compare-table thead th:first-child{color:var(--white);}
+    .compare-table tbody tr:hover{background:rgba(255,255,255,0.02);}
+    .compare-table .yes{color:var(--blue);font-weight:700;}
+    .compare-table .no{color:var(--gray-400);}
+    .compare-table .plan-col{font-weight:600;color:var(--white);}
+
+    .faq-list{display:flex;flex-direction:column;gap:16px;margin-top:48px;max-width:760px;margin-left:auto;margin-right:auto;}
+    .faq-item{background:var(--card-bg);border:1px solid rgba(255,255,255,0.07);border-radius:var(--radius);overflow:hidden;}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;cursor:pointer;font-weight:600;font-size:0.95rem;gap:16px;}
+    .faq-q .icon{color:var(--blue);font-size:1.2rem;flex-shrink:0;transition:transform 0.3s ease;}
+    .faq-item.open .faq-q .icon{transform:rotate(45deg);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+    .faq-item.open .faq-a{max-height:200px;}
+    .faq-a-inner{padding:0 24px 20px;color:var(--gray-300);font-size:0.9rem;line-height:1.7;}
+
+    .cta-section{background:linear-gradient(135deg,#0c1e30 0%,#080a0d 100%);text-align:center;padding:100px 0;border-top:1px solid rgba(14,165,233,0.15);}
+    .cta-section h2{font-family:var(--font-head);font-size:clamp(2.5rem,6vw,4rem);font-weight:900;text-transform:uppercase;}
+    .cta-section p{color:var(--gray-300);font-size:1.05rem;margin:16px auto 36px;max-width:480px;}
+
+    footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.06);padding:60px 0 32px;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+    .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+    .footer-logo img{height:40px;width:40px;object-fit:cover;border-radius:6px;}
+    .footer-logo span{font-family:var(--font-head);font-weight:800;font-size:1.1rem;text-transform:uppercase;}
+    .footer-tagline{font-size:0.9rem;color:var(--gray-300);line-height:1.6;margin-bottom:20px;}
+    .footer-socials{display:flex;gap:12px;}
+    .footer-social{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:0.9rem;}
+    .footer-social:hover{background:rgba(14,165,233,0.2);}
+    .footer-col-title{font-family:var(--font-head);font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray-300);margin-bottom:16px;}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-links a{font-size:0.875rem;color:var(--gray-400);}
+    .footer-links a:hover{color:var(--white);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+    .footer-copy{font-size:0.8rem;color:var(--gray-400);}
+
+    .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-up.visible{opacity:1;transform:translateY(0);}
+    @media(max-width:900px){.nav-links,.nav-cta-desktop{display:none;}.hamburger{display:flex;}.pricing-grid,.footer-grid{grid-template-columns:1fr;gap:24px;}.compare-table{font-size:0.8rem;}.compare-table th,.compare-table td{padding:12px 12px;}}
+    @media(max-width:600px){.section{padding:70px 0;}.pricing-card{padding:32px 24px;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.jpg" alt="Vital Edge logo" />
+      <span>Vital Edge</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="memberships.html">Memberships</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="free-trial.html" class="btn btn-primary nav-cta-desktop">Start Free Trial</a>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="memberships.html">Memberships</a>
+  <a href="schedule.html">Schedule</a>
+  <a href="contact.html">Contact</a>
+  <a href="free-trial.html" class="btn btn-primary">Start Free Trial</a>
+</div>
+
+<div class="page-header">
+  <span class="section-label">Membership Plans</span>
+  <h1>Simple. Transparent.<br><span>No Hidden Fees.</span></h1>
+  <p>Two plans. No contracts. Cancel anytime. Start with a free trial.</p>
+</div>
+
+<!-- PRICING -->
+<section class="section">
+  <div class="container">
+    <div class="pricing-grid">
+      <div class="pricing-card pricing-card-basic fade-up">
+        <div class="pricing-name">Basic Fitness Club</div>
+        <div class="pricing-price">
+          <span class="amount">$49</span>
+          <span class="period">/month</span>
+        </div>
+        <div class="pricing-sub">Gym access + recovery amenities</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Full open gym access</li>
+          <li><span class="check">✓</span> Infrared sauna</li>
+          <li><span class="check">✓</span> Red light therapy</li>
+          <li><span class="check">✓</span> All recovery amenities</li>
+          <li><span class="check">✓</span> Locker room access</li>
+          <li><span class="x">—</span> <span style="color:var(--gray-400)">Unlimited classes not included</span></li>
+        </ul>
+        <a href="free-trial.html" class="btn btn-outline btn-lg" style="width:100%;justify-content:center">Start Free Trial</a>
+      </div>
+      <div class="pricing-card pricing-card-premium fade-up">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-name">Full Access</div>
+        <div class="pricing-price">
+          <span class="amount">$199</span>
+          <span class="period">/month</span>
+        </div>
+        <div class="pricing-sub">Everything, unlimited</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Everything in Basic</li>
+          <li><span class="check">✓</span> Unlimited BJJ classes (gi &amp; no-gi)</li>
+          <li><span class="check">✓</span> Unlimited MMA classes</li>
+          <li><span class="check">✓</span> Unlimited Strength &amp; Conditioning</li>
+          <li><span class="check">✓</span> Kids programs included</li>
+          <li><span class="check">✓</span> Open mat sessions</li>
+          <li><span class="check">✓</span> All recovery amenities</li>
+        </ul>
+        <a href="free-trial.html" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">Start Free Trial</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--gray-400);font-size:0.85rem;margin-top:24px">No contracts. Cancel anytime. First class is always free.</p>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section" style="background:var(--dark-2);padding-top:60px;">
+  <div class="container fade-up">
+    <div style="text-align:center;margin-bottom:12px">
+      <span class="section-label">Plan Comparison</span>
+      <h2 class="section-title">What's Included</h2>
+    </div>
+    <div style="overflow-x:auto;margin-top:32px">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Basic — $49/mo</th>
+            <th>Full Access — $199/mo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="plan-col">Open Gym Access</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td class="plan-col">Infrared Sauna</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td class="plan-col">Red Light Therapy</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td class="plan-col">All Recovery Amenities</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td class="plan-col">Locker Room</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td class="plan-col">Unlimited BJJ Classes</td><td class="no">—</td><td class="yes">Yes</td></tr>
+          <tr><td class="plan-col">Unlimited MMA Classes</td><td class="no">—</td><td class="yes">Yes</td></tr>
+          <tr><td class="plan-col">Strength &amp; Conditioning</td><td class="no">—</td><td class="yes">Yes</td></tr>
+          <tr><td class="plan-col">Kids Programs</td><td class="no">—</td><td class="yes">Yes</td></tr>
+          <tr><td class="plan-col">Open Mat Sessions</td><td class="no">—</td><td class="yes">Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center" class="fade-up">
+      <span class="section-label">Questions</span>
+      <h2 class="section-title">Frequently Asked</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <div class="faq-q">Is there a contract or commitment?<span class="icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No contracts, ever. Both plans are month-to-month and you can cancel at any time. We believe if we're doing our job, you'll want to stay.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">How does the free trial work?<span class="icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Fill out the free trial form and we'll reach out to schedule your first session. No credit card required. Come train with us, see if it's a fit, and decide from there.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">I'm a complete beginner — is that okay?<span class="icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. Most of our members started with zero martial arts experience. We have beginner-specific classes and our instructors are known for being patient and welcoming. Everyone starts somewhere.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">Can I switch plans later?<span class="icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. You can upgrade or downgrade your plan at any time. Just talk to Pete or reach out via email and we'll take care of it.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">What does the Basic plan include exactly?<span class="icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Basic gives you full access to the gym floor, open mat time, infrared sauna, red light therapy, and all recovery amenities. It does not include scheduled classes. It's perfect for members who want to self-direct their training or primarily use the recovery amenities.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">Is the Full Access plan good for families?<span class="icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — Full Access includes kids programs. Contact us for family plan details if you have multiple children you'd like to enroll.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <span class="section-label">Start Today</span>
+    <h2>First Class Is Free.</h2>
+    <p>Try any program, no commitment. See why Vital Edge is different before you spend a dollar.</p>
+    <a href="free-trial.html" class="btn btn-primary btn-lg">Claim Your Free Trial</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="logo.jpg" alt="Vital Edge logo" /><span>Vital Edge Training Center</span></div>
+        <p class="footer-tagline">Authentic training. Real results. No ego.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/vitaledgetraining" target="_blank" rel="noopener" class="footer-social">IG</a>
+          <a href="https://www.facebook.com/profile.php?id=61583598425665" target="_blank" rel="noopener" class="footer-social">FB</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="memberships.html">Memberships</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+15087351912">(508) 735-1912</a></li>
+          <li><a href="mailto:vitaledgetrainingcenter@gmail.com">Email Us</a></li>
+          <li style="color:var(--gray-400);font-size:0.875rem">142 RTE 146, Millbury, MA 01527</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 Vital Edge Training Center.</div>
+      <div class="footer-copy"><a href="tel:+15087351912" style="color:var(--blue)">(508) 735-1912</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+  const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
