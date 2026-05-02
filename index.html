@@ -40,8 +40,8 @@
       --gray-600:  #334155;
       --font-head: 'Barlow Condensed', sans-serif;
       --font-body: 'Inter', sans-serif;
-      --nav-h:     110px;
-      --nav-h-sm:  78px;
+      --nav-h:     116px;
+      --nav-h-sm:  84px;
       --transition:0.3s cubic-bezier(0.4,0,0.2,1);
       --radius:    12px;
       --radius-lg: 20px;
@@ -78,8 +78,14 @@
     nav.scrolled { height: var(--nav-h-sm); background: rgba(8,10,13,0.96); }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; }
-    .nav-logo img { height: 92px; width: auto; object-fit: contain; display: block; transition: height var(--transition); }
-    nav.scrolled .nav-logo img { height: 56px; }
+    .nav-logo img {
+      height: 96px; width: auto; object-fit: contain; display: block;
+      transition: height var(--transition), filter var(--transition);
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.55)) drop-shadow(0 0 18px rgba(14,165,233,0.18));
+      image-rendering: -webkit-optimize-contrast;
+    }
+    .nav-logo:hover img { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.55)) drop-shadow(0 0 24px rgba(14,165,233,0.35)); }
+    nav.scrolled .nav-logo img { height: 64px; }
     .nav-logo span { display: none; }
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-300); transition: color var(--transition); position: relative; }
@@ -280,8 +286,11 @@
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
     .footer-brand { max-width: 360px; }
     .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-    .footer-logo img { height: 100px; width: auto; object-fit: contain; display: block; }
-    .footer-logo span { font-family: var(--font-head); font-weight: 800; font-size: 1.1rem; text-transform: uppercase; }
+    .footer-logo img {
+      height: 110px; width: auto; object-fit: contain; display: block;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+    }
+    .footer-logo span { display: none; }
     .footer-tagline { font-size: 0.9rem; color: var(--gray-300); line-height: 1.6; margin-bottom: 20px; }
     .footer-socials { display: flex; gap: 12px; }
     .footer-social { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: background var(--transition); }
@@ -959,8 +968,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="logo.png" alt="Vital Edge logo" />
-          <span>Vital Edge Training Center</span>
+          <img src="logo.png" alt="Vital Edge Training Center logo" />
         </div>
         <p class="footer-tagline">Providing a fitness and wellness training experience in an authentic and unpretentious setting, fostering personal growth, physical fitness, and recovery.</p>
         <div class="footer-socials">
