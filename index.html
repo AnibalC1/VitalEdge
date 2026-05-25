@@ -328,6 +328,120 @@
       .scroll-cue { display: none; }
     }
 
+    /* SCROLL PROGRESS BAR */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
+      background: linear-gradient(90deg, var(--blue), #38bdf8, #7dd3fc);
+      width: 0%; transition: none;
+      box-shadow: 0 0 10px rgba(14,165,233,0.5);
+    }
+
+    /* PARTICLE CANVAS */
+    #particles-canvas {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    }
+
+    /* HERO TEXT REVEAL */
+    .hero-reveal-line {
+      overflow: hidden; display: block;
+    }
+    .hero-reveal-line > span {
+      display: inline-block;
+      transform: translateY(110%);
+      animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-reveal-line:nth-child(2) > span { animation-delay: 0.15s; }
+    .hero-reveal-line:nth-child(3) > span { animation-delay: 0.3s; }
+    @keyframes revealUp {
+      to { transform: translateY(0); }
+    }
+    .hero-eyebrow {
+      opacity: 0; animation: fadeSlideIn 0.6s 0.7s ease forwards;
+    }
+    .hero-tagline {
+      opacity: 0; animation: fadeSlideIn 0.6s 0.85s ease forwards;
+    }
+    .hero-ctas {
+      opacity: 0; animation: fadeSlideIn 0.6s 1s ease forwards;
+    }
+    .hero-stats {
+      opacity: 0; animation: fadeSlideIn 0.6s 1.15s ease forwards;
+    }
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* CREDIBILITY MARQUEE */
+    .cred-bar { overflow: hidden; }
+    .cred-inner {
+      display: flex; align-items: center; gap: 0; flex-wrap: nowrap;
+      animation: marquee 25s linear infinite;
+      width: max-content;
+    }
+    .cred-inner:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .cred-item + .cred-item { border-left: 1px solid rgba(255,255,255,0.1); }
+
+    /* 3D TILT CARD PERSPECTIVE */
+    .tilt-card {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .tilt-card:hover {
+      box-shadow: 0 30px 60px rgba(14,165,233,0.2), 0 0 0 1px rgba(14,165,233,0.1);
+    }
+
+    /* ROTATING GRADIENT BORDER */
+    .glow-border {
+      position: relative;
+    }
+    .glow-border::after {
+      content: '';
+      position: absolute; inset: -1px;
+      border-radius: inherit;
+      background: conic-gradient(from var(--border-angle, 0deg), transparent 60%, rgba(14,165,233,0.4) 80%, rgba(56,189,248,0.6) 90%, rgba(14,165,233,0.4) 100%);
+      z-index: -1;
+      animation: rotateBorder 4s linear infinite;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .glow-border:hover::after { opacity: 1; }
+    @property --border-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+    @keyframes rotateBorder {
+      to { --border-angle: 360deg; }
+    }
+
+    /* MAGNETIC BUTTON */
+    .btn-magnetic {
+      transition: transform 0.2s ease;
+    }
+
+    /* PAGE LOAD ANIMATION */
+    body {
+      animation: pageLoad 0.4s ease;
+    }
+    @keyframes pageLoad {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* SERVICE CARD REVEAL OVERLAY */
+    .service-card-body { transform: translateY(8px); transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+    .service-card:hover .service-card-body { transform: translateY(0); }
+    .service-card-desc { opacity: 0; max-height: 0; transition: opacity 0.4s ease 0.1s, max-height 0.4s ease; overflow: hidden; }
+    .service-card:hover .service-card-desc { opacity: 0.85; max-height: 100px; }
+    .service-card-arrow { opacity: 0; transition: opacity 0.3s ease 0.15s, gap var(--transition); }
+    .service-card:hover .service-card-arrow { opacity: 1; }
+
     /* ANIMATED GRADIENT TEXT */
     .hero h1 .accent {
       background: linear-gradient(135deg, #0ea5e9, #38bdf8, #7dd3fc, #38bdf8, #0ea5e9);
@@ -433,6 +547,11 @@
       .hero h1 .accent { animation: none; }
       .btn-primary::after { animation: none; }
       .pricing-card-premium::before { animation: none !important; }
+      .hero-reveal-line > span { animation: none; transform: none; }
+      .hero-eyebrow, .hero-tagline, .hero-ctas, .hero-stats { animation: none; opacity: 1; }
+      .cred-inner { animation: none; }
+      .glow-border::after { animation: none; }
+      body { animation: none; }
     }
 
     /* ENHANCED CTA SECTION */
@@ -500,6 +619,7 @@
 <body>
 
 <a href="#main" class="skip-link">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -537,6 +657,7 @@
 <section class="hero" id="home">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
   <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
   <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
   <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
@@ -546,10 +667,10 @@
         <div class="dot" aria-hidden="true"></div>
         <span>Now Accepting New Members — Millbury, MA</span>
       </div>
-      <h1>Train Hard.<br><span class="accent">Think Clear.</span><br>Live Different.</h1>
+      <h1><span class="hero-reveal-line"><span>Train Hard.</span></span><br><span class="hero-reveal-line"><span class="accent">Think Clear.</span></span><br><span class="hero-reveal-line"><span>Live Different.</span></span></h1>
       <p class="hero-tagline">Elite Brazilian Jiu Jitsu, MMA, Strength &amp; Conditioning — paired with world-class recovery amenities. All levels welcome. No ego required.</p>
       <div class="hero-ctas">
-        <a href="free-trial.html" class="btn btn-primary btn-lg">Claim Your Free Trial &rarr;</a>
+        <a href="free-trial.html" class="btn btn-primary btn-lg btn-magnetic">Claim Your Free Trial &rarr;</a>
         <a href="schedule.html" class="btn btn-outline btn-lg">View Schedule</a>
       </div>
       <div class="hero-stats">
@@ -581,6 +702,11 @@
 <!-- CREDIBILITY BAR -->
 <div class="cred-bar">
   <div class="cred-inner">
+    <div class="cred-item"><span class="cred-icon" aria-hidden="true">🥋</span><span class="cred-text">BJJ Black Belt Instructors</span></div>
+    <div class="cred-item"><span class="cred-icon" aria-hidden="true">🔥</span><span class="cred-text">Infrared Sauna</span></div>
+    <div class="cred-item"><span class="cred-icon" aria-hidden="true">💡</span><span class="cred-text">Red Light Therapy</span></div>
+    <div class="cred-item"><span class="cred-icon" aria-hidden="true">💪</span><span class="cred-text">MMA &amp; Strength Training</span></div>
+    <div class="cred-item"><span class="cred-icon" aria-hidden="true">📍</span><span class="cred-text">Millbury, MA — RTE 146</span></div>
     <div class="cred-item"><span class="cred-icon" aria-hidden="true">🥋</span><span class="cred-text">BJJ Black Belt Instructors</span></div>
     <div class="cred-item"><span class="cred-icon" aria-hidden="true">🔥</span><span class="cred-text">Infrared Sauna</span></div>
     <div class="cred-item"><span class="cred-icon" aria-hidden="true">💡</span><span class="cred-text">Red Light Therapy</span></div>
@@ -756,22 +882,22 @@
       <p class="section-sub" style="margin:16px auto 0">Walking into a martial arts gym for the first time is intimidating. We make it simple.</p>
     </div>
     <div class="steps-grid">
-      <div class="step-card fade-up">
+      <div class="step-card tilt-card glow-border fade-up">
         <div class="step-num">01</div>
         <div class="step-title">Book Free Trial</div>
         <p class="step-desc">Fill out the form or call. We'll get back within 24 hours and find a class time that fits your schedule.</p>
       </div>
-      <div class="step-card fade-up">
+      <div class="step-card tilt-card glow-border fade-up">
         <div class="step-num">02</div>
         <div class="step-title">Show Up</div>
         <p class="step-desc">Wear comfortable workout clothes. We supply mats, equipment, and a friendly intro. No experience needed.</p>
       </div>
-      <div class="step-card fade-up">
+      <div class="step-card tilt-card glow-border fade-up">
         <div class="step-num">03</div>
         <div class="step-title">Train</div>
         <p class="step-desc">A coach guides you through fundamentals at your pace. You'll work with patient training partners — not get thrown to the wolves.</p>
       </div>
-      <div class="step-card fade-up">
+      <div class="step-card tilt-card glow-border fade-up">
         <div class="step-num">04</div>
         <div class="step-title">Recover</div>
         <p class="step-desc">Try the infrared sauna or red light therapy. Then decide if Vital Edge is right for you. No pressure.</p>
@@ -808,7 +934,7 @@
         <a href="free-trial.html" class="btn btn-outline btn-lg" style="width:100%;justify-content:center">Start Free Trial</a>
       </div>
 
-      <div class="pricing-card pricing-card-premium fade-up">
+      <div class="pricing-card pricing-card-premium glow-border fade-up">
         <div class="pricing-badge">Most Popular</div>
         <div class="pricing-name">Full Access</div>
         <div class="pricing-price">
@@ -1195,6 +1321,101 @@
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // Scroll progress bar
+  const scrollBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    scrollBar.style.width = (window.scrollY / h * 100) + '%';
+  }, { passive: true });
+
+  // Particle system
+  (function() {
+    const canvas = document.getElementById('particles-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const hero = canvas.parentElement;
+    let w, h, particles = [];
+    const COUNT = 60;
+    const MAX_DIST = 120;
+
+    function resize() {
+      w = canvas.width = hero.offsetWidth;
+      h = canvas.height = hero.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < COUNT; i++) {
+      particles.push({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 2 + 0.5,
+        o: Math.random() * 0.5 + 0.2
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+        if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(14,165,233,' + p.o * 0.6 + ')';
+        ctx.fill();
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x, dy = p.y - q.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MAX_DIST) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = 'rgba(14,165,233,' + (1 - dist / MAX_DIST) * 0.15 + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // 3D Tilt effect
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(800px) rotateX(' + (-y * 8) + 'deg) rotateY(' + (x * 8) + 'deg) translateY(-6px)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  // Magnetic buttons
+  document.querySelectorAll('.btn-magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      btn.style.transform = 'translate(' + (x * 0.2) + 'px,' + (y * 0.2) + 'px) translateY(-1px)';
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+
+  // Parallax hero
+  window.addEventListener('scroll', () => {
+    const bg = document.querySelector('.hero-bg');
+    if (bg) bg.style.transform = 'scale(1.05) translateY(' + (window.scrollY * 0.3) + 'px)';
+  }, { passive: true });
 
   // Scroll animations with stagger
   const observer = new IntersectionObserver((entries) => {

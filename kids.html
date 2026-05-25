@@ -124,7 +124,7 @@
     @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
 
     /* HERO GRADIENT TEXT */
-    .hero h1 span { background: linear-gradient(135deg, #0ea5e9, #38bdf8, #7dd3fc, #38bdf8, #0ea5e9); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradientShift 5s ease infinite; }
+    .hero h1 .accent-text { background: linear-gradient(135deg, #0ea5e9, #38bdf8, #7dd3fc, #38bdf8, #0ea5e9); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradientShift 5s ease infinite; }
     @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 
     /* BENEFIT CARD HOVER */
@@ -141,14 +141,24 @@
     .trust-badge { transition: transform 0.3s ease, background 0.3s ease; }
     .trust-badge:hover { transform: translateY(-2px); background: rgba(14,165,233,0.15); }
 
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; z-index: 200; background: linear-gradient(90deg, #0ea5e9, #38bdf8, #7dd3fc); width: 0%; box-shadow: 0 0 10px rgba(14,165,233,0.5); }
+    body { animation: pageLoad 0.4s ease; }
+    @keyframes pageLoad { from { opacity: 0; } to { opacity: 1; } }
+
+    .hero-reveal-line { overflow: hidden; display: block; }
+    .hero-reveal-line > span { display: inline-block; transform: translateY(110%); animation: revealUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards; }
+    .hero-reveal-line:nth-child(2) > span { animation-delay: 0.15s; }
+    @keyframes revealUp { to { transform: translateY(0); } }
+
     .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease;}
     .fade-up.visible{opacity:1;transform:translateY(0);}
-    @media(prefers-reduced-motion:reduce){.fade-up{opacity:1;transform:none;transition:none;}.btn-primary::after{animation:none;}}
+    @media(prefers-reduced-motion:reduce){.fade-up{opacity:1;transform:none;transition:none;}.btn-primary::after{animation:none;} body { animation: none; } }
     @media(max-width:900px){.nav-links,.nav-cta-desktop{display:none;}.hamburger{display:flex;}.benefits-grid,.split-grid,.footer-grid{grid-template-columns:1fr;gap:28px;}.hero-gi{display:none;}}
     @media(max-width:600px){.section{padding:70px 0;}}
   </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <nav>
   <div class="nav-inner">
@@ -185,7 +195,7 @@
   <div class="container">
     <div class="hero-content">
       <span class="section-label">Youth Program</span>
-      <h1>Give Your Child<br>the <span>Edge</span><br>for Life.</h1>
+      <h1><span class="hero-reveal-line"><span>Give Your Child</span></span><br><span class="hero-reveal-line"><span>the <span class="accent-text">Edge</span></span></span><br><span class="hero-reveal-line"><span>for Life.</span></span></h1>
       <p class="hero-sub">Kids Brazilian Jiu Jitsu builds more than technique. It builds discipline, confidence, focus, and resilience — skills that carry far beyond the mats.</p>
       <a href="free-trial.html" class="btn btn-primary btn-lg">Register for Free Trial</a>
       <div class="hero-trust">
@@ -361,6 +371,9 @@
 </footer>
 
 <script>
+  const scrollBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => { const h = document.documentElement.scrollHeight - window.innerHeight; scrollBar.style.width = (window.scrollY / h * 100) + '%'; }, { passive: true });
+
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
