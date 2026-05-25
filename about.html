@@ -107,6 +107,47 @@
     .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
     .footer-copy{font-size:0.8rem;color:var(--gray-400);}
 
+    /* HERO GRADIENT TEXT */
+    .hero h1 span { background: linear-gradient(135deg, #0ea5e9, #38bdf8, #7dd3fc, #38bdf8, #0ea5e9); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradientShift 5s ease infinite; }
+    @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+    /* MISSION QUOTE HOVER */
+    .mission-quote { transition: transform 0.3s ease; } .mission-quote:hover { transform: translateX(8px); }
+
+    /* BUTTON SHIMMER */
+    .btn-primary { position: relative; overflow: hidden; }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: -50%; left: -100%;
+      width: 60%; height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      transform: skewX(-20deg);
+      animation: shimmer 3.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes shimmer { 0%{left:-100%} 50%,100%{left:200%} }
+
+    /* GRAIN TEXTURE */
+    body::after {
+      content: ''; position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    /* ENHANCED CARD HOVER */
+    .coach-card { transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease; }
+    .coach-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(14,165,233,0.12); border-color: rgba(14,165,233,0.3); }
+    .value-card { transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; }
+    .value-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(14,165,233,0.1); border-color: rgba(14,165,233,0.25); }
+
+    /* ANIMATION VARIANTS */
+    .fade-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-left.visible { opacity: 1; transform: translateX(0); }
+    .fade-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-right.visible { opacity: 1; transform: translateX(0); }
+
     .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease;}
     .fade-up.visible{opacity:1;transform:translateY(0);}
 
@@ -116,6 +157,7 @@
       .values-grid,.facility-grid,.coaches-grid,.community-inner,.footer-grid{grid-template-columns:1fr;gap:36px;}
     }
     @media(max-width:600px){.section{padding:70px 0;}}
+    @media (prefers-reduced-motion: reduce) { .fade-up,.fade-left,.fade-right { opacity:1; transform:none; transition:none; } .btn-primary::after { animation:none; } }
   </style>
 </head>
 <body>
@@ -204,7 +246,7 @@
 <section class="section" style="background:var(--dark-2);">
   <div class="container">
     <div class="facility-grid">
-      <div class="facility-img fade-up">
+      <div class="facility-img fade-left">
         <img src="Gym-BirdEye-view.webp" alt="Vital Edge Training Center facility aerial view" loading="lazy" />
       </div>
       <div class="fade-up">
@@ -279,7 +321,7 @@
         <p style="color:var(--gray-300);font-size:0.95rem;line-height:1.8;margin-top:20px">We take care of each other on the mats and off them. When you train here, you join a community that will push you, support you, and celebrate you.</p>
         <a href="free-trial.html" class="btn btn-primary btn-lg" style="margin-top:32px">Join the Community</a>
       </div>
-      <div class="community-img fade-up">
+      <div class="community-img fade-right">
         <img src="group.webp" alt="Vital Edge training community" loading="lazy" />
       </div>
     </div>
@@ -341,7 +383,7 @@
   hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
   const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:0.1});
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
