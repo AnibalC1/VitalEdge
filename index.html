@@ -80,7 +80,8 @@
     .nav-logo { display: flex; align-items: center; gap: 10px; }
     .nav-logo img { height: 92px; width: auto; object-fit: contain; display: block; transition: height var(--transition); }
     nav.scrolled .nav-logo img { height: 56px; }
-    .nav-logo span { display: none; }
+    .nav-logo span { font-family: var(--font-head); font-weight: 800; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; transition: font-size var(--transition); }
+    nav.scrolled .nav-logo span { font-size: 1rem; }
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--gray-300); transition: color var(--transition); position: relative; }
     .nav-links a:hover { color: var(--white); }
@@ -626,6 +627,7 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo" aria-label="Vital Edge home">
       <img src="logo.png" alt="Vital Edge logo" />
+      <span>Vital Edge</span>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -1205,7 +1207,7 @@
       <div class="footer-brand">
         <div class="footer-logo">
           <img src="logo.png" alt="Vital Edge logo" />
-          
+          <span>Vital Edge</span>
         </div>
         <p class="footer-tagline">Providing a fitness and wellness training experience in an authentic and unpretentious setting, fostering personal growth, physical fitness, and recovery.</p>
         <div class="footer-socials">
